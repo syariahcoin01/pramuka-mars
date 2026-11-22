@@ -1,0 +1,75 @@
+:root {
+  --merah: #7c2d12; --bara: #c2410c; --oranye: #f97316; --pasir: #fff7ed; --tinta: #1c1917; --abu: #78716c;
+  --hijau: #166534; --hijau-muda: #dcfce7; --emas: #eab308; --garis: #e7e5e4;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; font: 15px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: var(--tinta); background: #0c0a09; }
+body { display: flex; flex-direction: column; }
+.bar { display: flex; align-items: center; justify-content: space-between; padding: 8px 14px; padding-top: max(8px, env(safe-area-inset-top));
+  background: linear-gradient(90deg, #1c1917, var(--merah)); color: #fff; z-index: 1000; }
+.brand { display: flex; align-items: center; gap: 10px; }
+.brand img { width: 36px; height: 36px; border-radius: 9px; }
+.brand b { display: block; font-size: 17px; letter-spacing: .2px; }
+.brand small { color: #fed7aa; font-size: 12px; }
+.stars { background: rgba(255,255,255,.12); border-radius: 99px; padding: 4px 12px; font-weight: 700; color: #fde047; }
+main { position: relative; flex: 1; min-height: 0; display: flex; flex-direction: column; }
+.peta-wrap { position: relative; flex: 1; min-height: 200px; }
+#peta { position: absolute; inset: 0; background: #2a1a12; }
+.lapisan { position: absolute; top: 10px; right: 10px; z-index: 600; display: flex; background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,.3); }
+.lapisan button { border: 0; background: #fff; padding: 7px 10px; font: inherit; font-size: 13px; cursor: pointer; }
+.lapisan button.on { background: var(--bara); color: #fff; font-weight: 600; }
+.offline { position: absolute; top: 52px; right: 10px; left: 10px; z-index: 600; background: #fef3c7; color: #78350f; padding: 6px 10px; border-radius: 8px; font-size: 13px; text-align: center; }
+.sheet { position: relative; z-index: 1100; background: #fff; border-radius: 16px 16px 0 0; box-shadow: 0 -4px 18px rgba(0,0,0,.35);
+  max-height: 50%; flex-shrink: 0; display: flex; flex-direction: column; padding-bottom: env(safe-area-inset-bottom); }
+.tabs { display: flex; border-bottom: 1px solid var(--garis); }
+.tabs button { flex: 1; border: 0; background: none; padding: 10px 4px; font: inherit; font-size: 14px; cursor: pointer; color: var(--abu); border-bottom: 3px solid transparent; }
+.tabs button.on { color: var(--bara); font-weight: 700; border-bottom-color: var(--bara); }
+.pane { overflow-y: auto; padding: 12px 14px 16px; }
+h2 { margin: 0 0 6px; font-size: 18px; }
+h3 { margin: 12px 0 6px; font-size: 15px; }
+p { margin: 0 0 8px; }
+.daftar { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
+.kartu { border: 1px solid var(--garis); border-radius: 12px; padding: 10px; background: #fff; cursor: pointer; text-align: left; font: inherit; }
+.kartu:hover, .kartu:focus-visible { border-color: var(--oranye); outline: none; box-shadow: 0 0 0 3px #fed7aa; }
+.kartu .ik { font-size: 22px; }
+.kartu b { display: block; margin: 2px 0; }
+.kartu .bintang { color: var(--emas); letter-spacing: 1px; }
+.kartu .bintang .kosong { color: #d6d3d1; }
+.tugas { background: var(--pasir); border-radius: 12px; padding: 10px 12px; margin: 8px 0; }
+.ilmu { font-size: 14px; color: #44403c; background: #f5f5f4; border-radius: 10px; padding: 8px 10px; }
+.ilmu::before { content: "📘 Ilmu Pramuka: "; font-weight: 700; }
+.baris { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin: 8px 0; }
+.btn { border: 0; border-radius: 10px; padding: 9px 14px; font: inherit; font-weight: 600; cursor: pointer; background: var(--bara); color: #fff; }
+.btn.sek { background: #f5f5f4; color: var(--tinta); }
+.btn:disabled { opacity: .5; cursor: default; }
+input[type=number], input[type=text] { font: inherit; padding: 8px 10px; border: 1px solid #d6d3d1; border-radius: 10px; width: 140px; }
+.hasil { border-radius: 12px; padding: 10px 12px; margin-top: 8px; }
+.hasil.ok { background: var(--hijau-muda); color: var(--hijau); }
+.hasil.coba { background: #fef2f2; color: #991b1b; }
+.hasil .big { font-size: 22px; color: var(--emas); }
+.morse { font-size: 20px; letter-spacing: 3px; background: #1c1917; color: #fde047; padding: 4px 10px; border-radius: 8px; display: inline-block; margin: 4px 0; }
+.tabel-morse { display: grid; grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); gap: 3px; font-size: 13px; margin-top: 6px; }
+.tabel-morse span { background: #f5f5f4; border-radius: 6px; padding: 2px 6px; font-family: ui-monospace, monospace; }
+.lencana-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 10px; }
+.lencana { text-align: center; padding: 10px 6px; border-radius: 12px; border: 1px dashed #d6d3d1; color: #a8a29e; }
+.lencana .emblem { font-size: 34px; filter: grayscale(1); opacity: .45; }
+.lencana.dapat { border: 1px solid var(--emas); background: #fefce8; color: var(--tinta); }
+.lencana.dapat .emblem { filter: none; opacity: 1; }
+.lencana small { display: block; font-size: 12px; }
+.ukur { font-size: 14px; background: var(--pasir); border-radius: 10px; padding: 8px 10px; }
+.kecil { font-size: 12.5px; color: var(--abu); }
+a { color: var(--bara); }
+.toast { position: fixed; left: 50%; top: 110px; max-width: 90vw; text-align: center; transform: translateX(-50%); z-index: 2000; background: var(--tinta); color: #fff; padding: 10px 16px; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,.4); font-weight: 600; }
+.pin { background: none; border: 0; }
+.pin div { font-size: 26px; line-height: 1; transform: translate(-2px, -8px); text-shadow: 0 1px 3px #000; }
+.label-situs { background: rgba(28,25,23,.8); color: #fff; border: 0; border-radius: 6px; font-size: 12px; padding: 2px 6px; box-shadow: none; }
+.label-situs::before { display: none; }
+.skala-mars { white-space: nowrap; background: rgba(255,255,255,.85); border: 2px solid #1c1917; border-top: 0; font: 600 11px system-ui; padding: 0 4px; color: #1c1917; }
+.mawar svg { overflow: visible; }
+.leaflet-container { background: #2a1a12; }
+@media (min-width: 900px) {
+  .sheet { position: absolute; right: 12px; bottom: 12px; top: 12px; width: 400px; max-height: none; border-radius: 16px; }
+  .peta-wrap .lapisan { right: 424px; }
+  .peta-wrap .offline { right: 424px; }
+  .peta-wrap .leaflet-bottom.leaflet-right { right: 412px; }
+}

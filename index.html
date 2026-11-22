@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Pramuka Mars</title>
+  <meta name="description" content="Latihan orientasi Pramuka di planet Mars dengan peta NASA Mars Trek." />
+  <meta name="theme-color" content="#7c2d12" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="vendor/leaflet.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="bar">
+    <div class="brand"><img src="icons/icon-192.png" alt="" /><div><b>Pramuka Mars</b><small>Latihan orientasi di Planet Merah</small></div></div>
+    <div class="stars" id="totalBintang" title="Total bintang">★ 0</div>
+  </header>
+
+  <main>
+    <div class="peta-wrap">
+      <div id="peta" role="application" aria-label="Peta Mars"></div>
+      <div class="lapisan" role="group" aria-label="Pilih lapisan peta">
+        <button data-lapis="viking" class="on">Warna Viking</button>
+        <button data-lapis="mola">Relief MOLA</button>
+      </div>
+      <div id="offline" class="offline" hidden>Mode offline: hanya ubin peta yang pernah dibuka yang tampil.</div>
+    </div>
+
+    <section class="sheet" id="sheet" aria-live="polite">
+      <nav class="tabs" role="tablist">
+        <button role="tab" data-tab="misi" class="on">🧭 Misi</button>
+        <button role="tab" data-tab="jelajah">🗺️ Jelajah</button>
+        <button role="tab" data-tab="lencana">🏅 Lencana</button>
+        <button role="tab" data-tab="tentang">ℹ️ Tentang</button>
+      </nav>
+      <div class="pane" id="pane"></div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" hidden></div>
+
+  <script src="vendor/leaflet.js"></script>
+  <script src="misi.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

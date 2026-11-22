@@ -1,0 +1,53 @@
+// Data misi Pramuka Mars. Koordinat planetosentris, bujur timur positif (−180..180).
+// Koordinat situs adalah perkiraan dari publikasi misi NASA; cocok untuk latihan orientasi.
+window.SITUS = {
+  jezero:      { nama: "Jezero (Perseverance)", lat: 18.4447, lon: 77.4508, info: "Kawah bekas danau purba selebar ±45 km. Perseverance mendarat di sini 18 Feb 2021 untuk mencari jejak kehidupan mikroba purba dan mengumpulkan sampel batuan.", hirise: "https://www.uahirise.org/ESP_042315_1985", hiriseJudul: "HiRISE ESP_042315_1985: delta di Kawah Jezero" },
+  curiosity:   { nama: "Gale (Curiosity)", lat: -4.5895, lon: 137.4417, info: "Curiosity mendarat di Kawah Gale pada Agustus 2012 dan mendaki Aeolis Mons (Gunung Sharp) yang tersusun dari lapisan batuan sedimen." },
+  insight:     { nama: "InSight", lat: 4.502, lon: 135.623, info: "Wahana pendarat InSight (2018–2022) mendengarkan \"gempa Mars\" dengan seismometer di dataran Elysium Planitia." },
+  viking1:     { nama: "Viking 1", lat: 22.27, lon: -47.95, info: "Wahana pertama NASA yang berhasil mendarat dan bekerja di permukaan Mars (1976), di Chryse Planitia." },
+  pathfinder:  { nama: "Mars Pathfinder", lat: 19.13, lon: -33.22, info: "Mendarat 1997 dengan rover kecil Sojourner, rover pertama yang bergerak di Mars." },
+  opportunity: { nama: "Opportunity", lat: -1.9462, lon: -5.5266, info: "Rover kembar Spirit. Dirancang untuk 90 sol, tetapi bertahan hampir 15 tahun dan menempuh ±45 km di Meridiani Planum." },
+  olympus:     { nama: "Olympus Mons", lat: 18.65, lon: -133.8, info: "Gunung api terbesar di Tata Surya, tinggi ±22 km (sekitar 2,5 kali Everest) dengan lebar ±600 km." },
+  valles:      { nama: "Valles Marineris", lat: -13.9, lon: -59.2, info: "Sistem ngarai sepanjang ±4.000 km dan dalam hingga ±7 km." },
+};
+
+window.MISI = [
+  { id: "koordinat", judul: "Baca Koordinat", ikon: "📍", jenis: "tandai", target: "jezero",
+    tugas: "Pangkalan mengirim koordinat pendaratan: <b>18,44° LU, 77,45° BT</b>. Ketuk lokasinya di peta.",
+    ilmu: "Seperti di Bumi, Mars punya garis lintang (utara–selatan) dan bujur (timur–barat). Peta Mars NASA memakai bujur timur, dan garis 0° melewati kawah kecil Airy-0.",
+    petunjuk: "Cari di belahan utara, sedikit di timur garis 0°. Perhatikan grid koordinat di peta.",
+    skor: [30, 100, 300], lencana: "Pembaca Koordinat" },
+  { id: "medan", judul: "Kenali Medan", ikon: "⛰️", jenis: "tandai", target: "olympus", lapisan: "mola",
+    tugas: "Tandai puncak <b>gunung api tertinggi di Tata Surya</b>. Gunakan lapisan <b>Relief MOLA</b>: warna putih/merah = paling tinggi.",
+    ilmu: "Pramuka belajar membaca kontur untuk mengenali bukit dan lembah. Di Mars, wahana MGS mengukur ketinggian dengan laser MOLA sehingga kita bisa membuat peta relief berwarna.",
+    petunjuk: "Lihat wilayah Tharsis di belahan barat. Ada satu gunung bulat raksasa yang menyendiri.",
+    skor: [100, 250, 500], lencana: "Pembaca Medan" },
+  { id: "kompas", judul: "Arah Kompas", ikon: "🧭", jenis: "kompas", dari: "insight", ke: "curiosity",
+    tugas: "Kamu berada di pendarat <b>InSight</b>. Ke arah berapa derajat kamu harus berjalan untuk mencapai rover <b>Curiosity</b>?",
+    ilmu: "Arah kompas diukur searah jarum jam dari utara: 0° utara, 90° timur, 180° selatan, 270° barat. Gunakan mawar kompas pada peta untuk membacanya.",
+    petunjuk: "Curiosity ada di sebelah selatan dan sedikit ke timur dari InSight.",
+    skor: [5, 15, 30], lencana: "Ahli Kompas" },
+  { id: "jarak", judul: "Ukur Jarak", ikon: "📏", jenis: "jarak", dari: "viking1", ke: "pathfinder",
+    tugas: "Berapa kilometer jarak antara <b>Viking 1</b> dan <b>Mars Pathfinder</b>? Gunakan skala peta di pojok kiri bawah.",
+    ilmu: "Skala peta menghubungkan jarak di peta dengan jarak sebenarnya. Mars lebih kecil dari Bumi (jari-jari ±3.390 km), jadi satu derajat lintang di Mars ±59 km, bukan ±111 km seperti di Bumi.",
+    petunjuk: "Bandingkan panjang garis putus-putus dengan batang skala. Selisih lintang ±3°, selisih bujur ±15°.",
+    skor: [5, 15, 30], lencana: "Pengukur Jarak" },
+  { id: "sandi", judul: "Sandi Morse", ikon: "📡", jenis: "sandi", jawaban: "JEZERO",
+    tugas: "Pangkalan mengirim nama kawah tujuan dalam sandi Morse:<br><code class=\"morse\">.--- . --.. . .-. ---</code><br>Terjemahkan!",
+    ilmu: "Sandi Morse adalah keterampilan klasik Pramuka. Wahana antariksa juga berkomunikasi dengan kode biner dan sinyal radio ke Deep Space Network NASA.",
+    petunjuk: "Lihat tabel Morse di bawah. Huruf pertama: .--- = J.",
+    lencana: "Penerjemah Sandi" },
+  { id: "jejak", judul: "Jejak Rover Tangguh", ikon: "🚙", jenis: "tandai", target: "opportunity",
+    tugas: "Tandai tempat rover <b>Opportunity</b> mendarat: <b>1,95° LS, 5,53° BB</b> (bujur barat = bujur timur negatif).",
+    ilmu: "Opportunity membuktikan pentingnya ketekunan: dirancang untuk 90 hari, bekerja hampir 15 tahun. Sama seperti Dasa Darma Pramuka: rajin, terampil, dan gembira.",
+    petunjuk: "Hampir tepat di garis khatulistiwa Mars, sedikit di barat bujur 0°.",
+    skor: [30, 100, 300], lencana: "Pelacak Jejak" },
+  { id: "ngarai", judul: "Ngarai Raksasa", ikon: "🏜️", jenis: "tandai", target: "valles",
+    tugas: "Tandai bagian tengah <b>Valles Marineris</b>, ngarai terpanjang di Mars.",
+    ilmu: "Valles Marineris terbentuk dari retakan kerak saat wilayah Tharsis terangkat. Panjangnya hampir sama dengan lebar benua Australia.",
+    petunjuk: "Cari garis gelap panjang memanjang barat–timur, sedikit di selatan khatulistiwa, di timur Tharsis.",
+    skor: [150, 400, 800], lencana: "Penjelajah Ngarai" },
+];
+
+window.MORSE = { A: ".-", B: "-...", C: "-.-.", D: "-..", E: ".", F: "..-.", G: "--.", H: "....", I: "..", J: ".---", K: "-.-", L: ".-..", M: "--",
+  N: "-.", O: "---", P: ".--.", Q: "--.-", R: ".-.", S: "...", T: "-", U: "..-", V: "...-", W: ".--", X: "-..-", Y: "-.--", Z: "--.." };
